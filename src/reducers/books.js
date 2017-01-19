@@ -1,37 +1,40 @@
-import { BOOKS } from '../actions';
+import { REQUEST_BOOKS, RECEIVE_BOOKS } from '../actions';
 
-const initialState = {
-  entities: {
-    users: {
-      1: {
-        id: 1,
-        name: "Andrew",
-      },
-    },
-    books: {
-      1: {
-        id: 1,
-        title: "A",
-        owner: 1,
-      },
-    },
-  },
-  display: {
-    all: {
-      isFetching: false,
-      didInvalidate: false,
-      items: [],
-    },
-  },
-};
-
-const books = (state = initialState, action) => {
+const books = (state = {
+  isFetching: false,
+  didInvalidate: false,
+  items: [],
+}, action) => {
   switch (action.type) {
-    case BOOKS:
+    case REQUEST_BOOKS:
       return {
         ...state,
-      }
+        isFetching: true,
+        didInvalidate: false,
+      };
+    case RECEIVE_BOOKS:
+      return {
+        ...state,
+        isFetching: false,
+        didInvalidate: false,
+        items: action.books,
+        lastUpdated: action.receivedAt,
+      };
     default:
       return state;
   }
-}
+};
+const booksByClass = (state = {}, action) => {
+  switch (action.type) {
+    case REQUEST_BOOKS:
+    case RECEIVE_BOOKS:
+      return {
+        ...state,
+        [action.selectedClass]: books(state[action.selectedClass], action),
+      };
+    default:
+      return state;
+  }
+};
+
+export default booksByClass;

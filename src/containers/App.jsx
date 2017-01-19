@@ -1,35 +1,57 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { fetchBooks } from '../actions';
+import Books from '../components/Books';
 
-// class App extends Component {
-//
-//   componentDidMount() {
-//   }
-//
-//   render() {
-//     return (
-//       <div>
-//         <h1>Hello world</h1>
-//       </div>
-//     );
-//   }
-// }
+class App extends Component {
 
-// function mapStateToProps(state) {
-// }
-//
-// App.proptypes = {
-// };
+  componentDidMount() {
+    const { dispatch, selectedClass } = this.props;
+    dispatch(fetchBooks(selectedClass));
+  }
 
-// export default connect(mapStateToProps)(App);
+  render() {
+    const { books, isFetching } = this.props;
+    return (
+      <div>
+        <h1>Hello world</h1>
+        {books.length > 0 &&
+          <div style={{ opacity: isFetching ? 0.5 : 1 }}>
+            <Books books={books} />
+          </div>
+        }
+      </div>
+    );
+  }
+}
 
-const App = () => {
-  const text = 'Hello world';
+function mapStateToProps(state) {
+  const { booksByClass, selectedClass } = state;
 
-  return (
-    <div>
-      <h1>{text}</h1>
-    </div>
-  );
+  const {
+    isFetching,
+    lastUpdated,
+    items: books,
+  } = booksByClass[selectedClass] || {
+    isFetching: true,
+    items: [],
+  };
+
+  return {
+    selectedClass,
+    books,
+    isFetching,
+    lastUpdated,
+  };
+}
+
+App.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  selectedClass: PropTypes.string.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  books: PropTypes.arrayOf(
+    PropTypes.object.isRequired,
+  ),
 };
 
-export default App;
+export default connect(mapStateToProps)(App);

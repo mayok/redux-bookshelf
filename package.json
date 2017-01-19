@@ -12,12 +12,13 @@
     "test:watch": "npm run test -- --watch",
     "build": "./node_modules/.bin/webpack",
     "start": "./node_modules/.bin/webpack-dev-server",
-    "lint": "eslint src"
+    "lint": "eslint src || true"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
