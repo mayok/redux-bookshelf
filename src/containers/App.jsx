@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { fetchBooks } from '../actions';
-import Books from '../components/Books';
+import Books from '../containers/Books';
 
 class App extends Component {
 
