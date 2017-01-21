@@ -15,9 +15,12 @@ module.exports = {
         }
       },
       {
-        test: /\.js[x]?$/,
-        exclude: /node_modules/,
-        loaders: ['babel-loader', 'eslint-loader']
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          localIdentname: '[name]--[hash:base64:4]'
+        }
       }
     ]
   },
@@ -30,10 +33,6 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    hot: true,
     contentBase: './dist',
   },
-  eslint: {
-    configFile: './.eslintrc'
-  }
 };
