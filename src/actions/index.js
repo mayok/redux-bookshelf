@@ -4,14 +4,14 @@ export const REQUEST_BOOKS = 'REQUEST_BOOKS';
 export const RECEIVE_BOOKS = 'RECEIVE_BOOKS';
 export const SHOW_ALL = 'SHOW_ALL';
 export const TOGGLE_ACTIVE = 'TOGGLE_ACTIVE';
-export const BOOK_INFOMATION = 'BOOK_INFOMATION';
+export const BOOK_INFORMATION = 'BOOK_INFORMATION';
 
 export const toggleActive = () => ({
   type: TOGGLE_ACTIVE,
 });
 
-export const bookInfomation = (x, y) => ({
-  type: BOOK_INFOMATION,
+export const bookInformation = (x, y) => ({
+  type: BOOK_INFORMATION,
   x,
   y,
 });

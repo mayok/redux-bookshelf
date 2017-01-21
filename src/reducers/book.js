@@ -1,4 +1,4 @@
-import { TOGGLE_ACTIVE, BOOK_INFOMATION } from '../actions';
+import { TOGGLE_ACTIVE, BOOK_INFORMATION } from '../actions';
 
 const book = (state = {
   active: false,
@@ -11,7 +11,7 @@ const book = (state = {
         ...state,
         active: !state.active,
       };
-    case BOOK_INFOMATION:
+    case BOOK_INFORMATION:
       return {
         ...state,
         actve: true,
