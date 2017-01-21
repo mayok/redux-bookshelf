@@ -16,11 +16,6 @@ export const receiveBooks = (selectedClass, json) => ({
   selectedClass,
 });
 
-export const showAll = () => ({
-  type: SHOW_ALL,
-});
-
-
 export function fetchBooks(selectedClass) {
   return (dispatch) => {
     dispatch(requestBooks(selectedClass));
