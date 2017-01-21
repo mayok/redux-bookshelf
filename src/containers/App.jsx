@@ -25,9 +25,8 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   const { booksByClass, selectedClass } = state;
-
   const {
     isFetching,
     lastUpdated,
@@ -43,7 +42,7 @@ function mapStateToProps(state) {
     isFetching,
     lastUpdated,
   };
-}
+};
 
 App.propTypes = {
   dispatch: PropTypes.func.isRequired,

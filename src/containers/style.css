@@ -1,0 +1,10 @@
+.bookContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.book {
+  margin: 10px auto;
+  height: 200px;
+  max-width: 200px;
+}
