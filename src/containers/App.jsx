@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchBooks } from '../actions';
+import { fetchBooks, bookInformation } from '../actions';
 import Books from '../containers/Books';
+import Header from '../components/Header';
+import Information from '../components/Information';
 
 class App extends Component {
 
@@ -10,15 +12,29 @@ class App extends Component {
     dispatch(fetchBooks(selectedClass));
   }
 
+  handleClick() {
+    const { dispatch } = this.props;
+    const element = document.querySelector(".active");
+    if(element !== null) {
+      element.classList.remove("active");
+      dispatch(bookInformation(false, -1, 0));
+    }
+  }
+
   render() {
-    const { books, isFetching } = this.props;
+    const { books, isFetching, book } = this.props;
     return (
-      <div>
-        <h1>Hello world</h1>
+      <div onClick={() => this.handleClick()}>
+        <Header />
         {books.length > 0 &&
           <div style={{ opacity: isFetching ? 0.5 : 1 }}>
             <Books books={books} />
           </div>
+        }
+        {book.isActive &&
+            <Information
+              book={books[book.id]}
+              position={book.position} />
         }
       </div>
     );
@@ -26,7 +42,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const { booksByClass, selectedClass } = state;
+  const { booksByClass, selectedClass, book } = state;
   const {
     isFetching,
     lastUpdated,
@@ -41,6 +57,7 @@ const mapStateToProps = state => {
     books,
     isFetching,
     lastUpdated,
+    book,
   };
 };
 
@@ -51,6 +68,10 @@ App.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.object.isRequired,
   ),
+  book: PropTypes.shape({
+    id: PropTypes.number,
+    isActive: PropTypes.bool.isRequired,
+  }),
 };
 
 export default connect(mapStateToProps)(App);

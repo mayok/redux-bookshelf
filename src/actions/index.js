@@ -2,18 +2,13 @@ import fetch from 'isomorphic-fetch';
 
 export const REQUEST_BOOKS = 'REQUEST_BOOKS';
 export const RECEIVE_BOOKS = 'RECEIVE_BOOKS';
-export const SHOW_ALL = 'SHOW_ALL';
-export const TOGGLE_ACTIVE = 'TOGGLE_ACTIVE';
 export const BOOK_INFORMATION = 'BOOK_INFORMATION';
 
-export const toggleActive = () => ({
-  type: TOGGLE_ACTIVE,
-});
-
-export const bookInformation = (x, y) => ({
+export const bookInformation = (bool, id, position) => ({
   type: BOOK_INFORMATION,
-  x,
-  y,
+  bool,
+  id,
+  position,
 });
 
 export const requestBooks = selectedClass => ({

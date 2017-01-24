@@ -1,22 +1,17 @@
-import { TOGGLE_ACTIVE, BOOK_INFORMATION } from '../actions';
+import { BOOK_INFORMATION } from '../actions';
 
 const book = (state = {
-  active: false,
-  x: 0,
-  y: 0,
+  id: -1,
+  isActive: false,
+  position: 0,
 }, action) => {
   switch (action.type) {
-    case TOGGLE_ACTIVE:
-      return {
-        ...state,
-        active: !state.active,
-      };
     case BOOK_INFORMATION:
       return {
         ...state,
-        actve: true,
-        x: action.x,
-        y: action.y,
+        id: action.id,
+        isActive: action.bool,
+        position: action.position,
       };
     default:
       return state;

@@ -1,10 +1,12 @@
 .bookContainer {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 .book {
-  margin: 10px auto;
+  margin: 10px 30px;
+}
+.bookCover {
   height: 200px;
   max-width: 200px;
 }
