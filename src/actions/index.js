@@ -26,7 +26,7 @@ export const receiveBooks = (selectedClass, json) => ({
 export function fetchBooks(selectedClass) {
   return (dispatch) => {
     dispatch(requestBooks(selectedClass));
-    return fetch('http://localhost:8080/test.json')
+    return fetch('https://mayok.github.io/redux-bookshelf/dist/test.json')
       .then(response => response.json())
       .then(json => dispatch(receiveBooks(selectedClass, json)));
   };
