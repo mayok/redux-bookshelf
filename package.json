@@ -10,7 +10,7 @@
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js test/**/*_spec.js",
     "test:watch": "npm run test -- --watch",
-    "build": "./node_modules/.bin/webpack",
+    "build": "./node_modules/.bin/webpack --config webpack.production.config.js",
     "start": "./node_modules/.bin/webpack-dev-server",
     "lint": "eslint --fix src/**/*.js[x] || true"
   },

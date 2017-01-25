@@ -2,69 +2,58 @@
   "books": {
     "all": [
       {
-        "id": 1,
-        "title": "A",
-        "authors": "Alpha",
+        "title": "Alpha",
+        "authors": "John Smith",
         "imageUrl": ""
       },
       {
-        "id": 2,
-        "title": "B",
-        "authors": "Bravo",
+        "title": "Bravo",
+        "authors": "John Smith",
         "imageUrl": ""
       },
       {
-        "id": 3,
-        "title": "C",
-        "authors": "hoge",
+        "title": "Charlie",
+        "authors": "John Smith",
         "imageUrl": ""
       },
       {
-        "id": 4,
-        "title": "D",
-        "authors": "hoge",
+        "title": "Delta",
+        "authors": "John Smith",
         "imageUrl": ""
       },
       {
-        "id": 5,
-        "title": "E",
-        "authors": "hoge",
+        "title": "Echo",
+        "authors": "John Smith",
         "imageUrl": ""
       },
       {
-        "id": 6,
-        "title": "F",
-        "authors": "hoge",
+        "title": "Foxtrot",
+        "authors": "John Smith",
         "imageUrl": ""
       },
       {
-        "id": 7,
-        "title": "G",
-        "authors": "hoge",
+        "title": "Golf",
+        "authors": "John Smith",
         "imageUrl": ""
       },
       {
-        "id": 8,
-        "title": "H",
-        "authors": "hoge",
+        "title": "Hotel",
+        "authors": "John Smith",
         "imageUrl": ""
       },
       {
-        "id": 9,
-        "title": "I",
-        "authors": "hoge",
+        "title": "India",
+        "authors": "John Smith",
         "imageUrl": ""
       },
       {
-        "id": 10,
-        "title": "J",
-        "authors": "hoge",
+        "title": "Juliett",
+        "authors": "John Smith",
         "imageUrl": ""
       },
       {
-        "id": 11,
-        "title": "K",
-        "authors": "hoge",
+        "title": "Kilo",
+        "authors": "John Smith",
         "imageUrl": ""
       }
     ]
