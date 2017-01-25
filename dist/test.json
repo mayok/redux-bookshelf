@@ -1,0 +1,72 @@
+{
+  "books": {
+    "all": [
+      {
+        "id": 1,
+        "title": "A",
+        "authors": "Alpha",
+        "imageUrl": ""
+      },
+      {
+        "id": 2,
+        "title": "B",
+        "authors": "Bravo",
+        "imageUrl": ""
+      },
+      {
+        "id": 3,
+        "title": "C",
+        "authors": "hoge",
+        "imageUrl": ""
+      },
+      {
+        "id": 4,
+        "title": "D",
+        "authors": "hoge",
+        "imageUrl": ""
+      },
+      {
+        "id": 5,
+        "title": "E",
+        "authors": "hoge",
+        "imageUrl": ""
+      },
+      {
+        "id": 6,
+        "title": "F",
+        "authors": "hoge",
+        "imageUrl": ""
+      },
+      {
+        "id": 7,
+        "title": "G",
+        "authors": "hoge",
+        "imageUrl": ""
+      },
+      {
+        "id": 8,
+        "title": "H",
+        "authors": "hoge",
+        "imageUrl": ""
+      },
+      {
+        "id": 9,
+        "title": "I",
+        "authors": "hoge",
+        "imageUrl": ""
+      },
+      {
+        "id": 10,
+        "title": "J",
+        "authors": "hoge",
+        "imageUrl": ""
+      },
+      {
+        "id": 11,
+        "title": "K",
+        "authors": "hoge",
+        "imageUrl": ""
+      }
+    ]
+  }
+}
