@@ -1,7 +1,22 @@
 import { connect } from 'react-redux';
 import React, { Component, PropTypes } from 'react';
 import { bookInformation } from '../actions';
-import styles from './style.css';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+`;
+
+const Book = styled.div`
+  margin: 10px 30px;
+`;
+
+const BookCover = styled.img`
+  height: 200px;
+  max-width: 200px;
+`;
 
 class Books extends Component {
   constructor(props) {
@@ -30,20 +45,18 @@ class Books extends Component {
   render() {
     const { books } = this.props;
     return (
-      <div className={styles.bookContainer}>
+      <Container>
         {books.map((book, i) =>
-          <div
+          <Book
             key={i}
-            className={styles.book}
-            onClick={(e) => { this.handleClick(e, i) } }
+            onClick={ e => { this.handleClick(e, i) } }
           >
-            <img
-              className={styles.bookCover}
+            <BookCover
               src={book.imageUrl ? book.imageUrl : '//satyr.io/140x200'}
             />
-          </div>,
+          </Book>
         )}
-      </div>
+      </Container>
     )
   }
 }
