@@ -14,9 +14,9 @@ class App extends Component {
 
   handleClick() {
     const { dispatch } = this.props;
-    const element = document.querySelector(".active");
-    if(element !== null) {
-      element.classList.remove("active");
+    const element = document.querySelector('.active');
+    if (element !== null) {
+      element.classList.remove('active');
       dispatch(bookInformation(false, -1, 0));
     }
   }
@@ -32,16 +32,17 @@ class App extends Component {
           </div>
         }
         {book.isActive &&
-            <Information
-              book={books[book.id]}
-              position={book.position} />
+          <Information
+            book={books[book.id]}
+            position={book.position}
+          />
         }
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { booksByClass, selectedClass, book } = state;
   const {
     isFetching,

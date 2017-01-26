@@ -29,7 +29,14 @@ const Information = ({ book, position }) => {
       <Authors>{book.authors}</Authors>
       <Description>{book.description}</Description>
     </Container>
-  )
+  );
+};
+
+Information.propTypes = {
+  book: React.PropTypes.objectOf(
+    React.PropTypes.string.isRequired,
+  ),
+  position: React.PropTypes.number.isRequired,
 };
 
 export default Information;

@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
-import React, { Component, PropTypes } from 'react';
-import { bookInformation } from '../actions';
+import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { bookInformation } from '../actions';
 
 const Container = styled.div`
   display: flex;
@@ -18,21 +18,19 @@ const BookCover = styled.img`
   max-width: 200px;
 `;
 
-class Books extends Component {
-  constructor(props) {
-    super(props);
-  }
+class Books extends React.Component {
 
   handleClick(e, i) {
     const { dispatch } = this.props;
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
 
-    const element = document.querySelector(".active");
-    if(element !== null)
-      element.classList.remove("active");
-    if(e.target.nodeName === "IMG") {
-      e.target.parentNode.classList.add("active");
+    const element = document.querySelector('.active');
+    if (element !== null) {
+      element.classList.remove('active');
+    }
+    if (e.target.nodeName === 'IMG') {
+      e.target.parentNode.classList.add('active');
       dispatch(
         bookInformation(
           true,
@@ -49,22 +47,23 @@ class Books extends Component {
         {books.map((book, i) =>
           <Book
             key={i}
-            onClick={ e => { this.handleClick(e, i) } }
+            onClick={(e) => { this.handleClick(e, i); }}
           >
             <BookCover
               src={book.imageUrl ? book.imageUrl : '//satyr.io/140x200'}
             />
-          </Book>
+          </Book>,
         )}
       </Container>
-    )
+    );
   }
 }
 
 Books.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
+  books: React.PropTypes.arrayOf(
+    React.PropTypes.object.isRequired,
   ),
+  dispatch: React.PropTypes.func.isRequired,
 };
 
 export default connect()(Books);
