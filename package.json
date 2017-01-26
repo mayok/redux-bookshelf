@@ -12,7 +12,7 @@
     "test:watch": "npm run test -- --watch",
     "build": "./node_modules/.bin/webpack",
     "start": "./node_modules/.bin/webpack-dev-server",
-    "lint": "eslint src || true"
+    "lint": "eslint --fix src/**/*.js[x] || true"
   },
   "keywords": [],
   "author": "",
@@ -39,7 +39,6 @@
     "enzyme": "^2.5.1",
     "eslint": "^3.13.1",
     "eslint-config-airbnb": "^13.0.0",
-    "eslint-loader": "^1.6.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
