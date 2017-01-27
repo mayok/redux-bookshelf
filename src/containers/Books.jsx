@@ -35,7 +35,7 @@ class Books extends React.Component {
         bookInformation(
           true,
           i,
-          e.target.getBoundingClientRect().bottom,
+          e.target.getBoundingClientRect().bottom + window.pageYOffset,
       ));
     }
   }
