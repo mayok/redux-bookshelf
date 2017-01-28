@@ -35,8 +35,8 @@ const Information = ({ book, position }) => {
 
       <Wrap>
         <Description>{book.description}</Description>
-      </ContainerR>
-    </Wrap>
+      </Wrap>
+    </Container>
   );
 };
 
