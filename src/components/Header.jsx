@@ -1,11 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+`;
 
 const Header = () => (
-  <div className={'header'}>
-    <ul>
-      <li><a href="/">Home</a></li>
-    </ul>
-  </div>
+  <Container />
 );
 
 export default Header;

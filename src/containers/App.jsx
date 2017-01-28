@@ -1,11 +1,17 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import { fetchBooks, bookInformation } from '../actions';
 import Books from '../containers/Books';
 import Header from '../components/Header';
 import Information from '../components/Information';
 
-class App extends Component {
+const Background = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+class App extends React.Component {
 
   componentDidMount() {
     const { dispatch, selectedClass } = this.props;
@@ -22,22 +28,18 @@ class App extends Component {
   }
 
   render() {
-    const { books, isFetching, book } = this.props;
+    const { books, book } = this.props;
     return (
-      <div onClick={() => this.handleClick()}>
+      <Background onClick={() => this.handleClick()}>
         <Header />
-        {books.length > 0 &&
-          <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-            <Books books={books} />
-          </div>
-        }
+        <Books books={books} />
         {book.isActive &&
           <Information
             book={books[book.id]}
             position={book.position}
           />
         }
-      </div>
+      </Background>
     );
   }
 }
@@ -63,15 +65,14 @@ const mapStateToProps = (state) => {
 };
 
 App.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  selectedClass: PropTypes.string.isRequired,
-  isFetching: PropTypes.bool.isRequired,
-  books: PropTypes.arrayOf(
-    PropTypes.object.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
+  selectedClass: React.PropTypes.string.isRequired,
+  books: React.PropTypes.arrayOf(
+    React.PropTypes.object.isRequired,
   ),
-  book: PropTypes.shape({
-    id: PropTypes.number,
-    isActive: PropTypes.bool.isRequired,
+  book: React.PropTypes.shape({
+    id: React.PropTypes.number,
+    isActive: React.PropTypes.bool.isRequired,
   }),
 };
 
