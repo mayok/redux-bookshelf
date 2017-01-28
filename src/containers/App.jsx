@@ -11,6 +11,13 @@ const Background = styled.div`
   height: 100%;
 `;
 
+const Container = styled.div`
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0 0;
+`;
+
 class App extends React.Component {
 
   componentDidMount() {
@@ -31,14 +38,16 @@ class App extends React.Component {
     const { books, book } = this.props;
     return (
       <Background onClick={() => this.handleClick()}>
-        <Header />
-        <Books books={books} />
-        {book.isActive &&
-          <Information
-            book={books[book.id]}
-            position={book.position}
-          />
-        }
+        <Container>
+          <Header />
+          <Books books={books} />
+          {book.isActive &&
+            <Information
+              book={books[book.id]}
+              position={book.position}
+            />
+          }
+        </Container>
       </Background>
     );
   }
