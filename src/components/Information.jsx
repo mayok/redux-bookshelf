@@ -3,13 +3,16 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   position: absolute;
-  left: 0;
   margin-top: 2px;
   padding: 10px 80px 0;
-  width: 100%;
   height: 240px;
 
   background: #fefefe;
+`;
+
+const Wrap = styled.div`
+  display: inline-block;
+  width: 49%;
 `;
 
 const Title = styled.h2`
@@ -25,9 +28,14 @@ const Information = ({ book, position }) => {
 
   return (
     <Container style={s}>
-      <Title>{book.title}</Title>
-      <Authors>{book.authors}</Authors>
-      <Description>{book.description}</Description>
+      <Wrap>
+        <Title>{book.title}</Title>
+        <Authors>{book.authors}</Authors>
+      </Wrap>
+
+      <Wrap>
+        <Description>{book.description}</Description>
+      </Wrap>
     </Container>
   );
 };
