@@ -35,7 +35,7 @@ const Information = ({ book, position }) => {
 Information.propTypes = {
   book: React.PropTypes.objectOf(
     React.PropTypes.string.isRequired,
-  ),
+  ).isRequired,
   position: React.PropTypes.number.isRequired,
 };
 

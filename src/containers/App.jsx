@@ -68,11 +68,11 @@ App.propTypes = {
   isFetching: PropTypes.bool.isRequired,
   books: PropTypes.arrayOf(
     PropTypes.object.isRequired,
-  ),
+  ).isRequired,
   book: PropTypes.shape({
     id: PropTypes.number,
     isActive: PropTypes.bool.isRequired,
-  }),
+  }).isRequired,
 };
 
 export default connect(mapStateToProps)(App);
