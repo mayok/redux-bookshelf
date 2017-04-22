@@ -78,11 +78,11 @@ App.propTypes = {
   selectedClass: React.PropTypes.string.isRequired,
   books: React.PropTypes.arrayOf(
     React.PropTypes.object.isRequired,
-  ),
+  ).isRequired,
   book: React.PropTypes.shape({
     id: React.PropTypes.number,
     isActive: React.PropTypes.bool.isRequired,
-  }),
+  }).isRequired,
 };
 
 export default connect(mapStateToProps)(App);

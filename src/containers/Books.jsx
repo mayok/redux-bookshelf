@@ -46,7 +46,7 @@ class Books extends React.Component {
       <Container>
         {books.map((book, i) =>
           <Book
-            key={i}
+            key={i} // TODO: FIX
             onClick={(e) => { this.handleClick(e, i); }}
           >
             <BookCover
@@ -62,7 +62,7 @@ class Books extends React.Component {
 Books.propTypes = {
   books: React.PropTypes.arrayOf(
     React.PropTypes.object.isRequired,
-  ),
+  ).isRequired,
   dispatch: React.PropTypes.func.isRequired,
 };
 

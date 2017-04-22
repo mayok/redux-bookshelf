@@ -2,9 +2,8 @@ var path    = require('path');
 var webpack = require('webpack');
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: [
-    'webpack-dev-server/client?http://0.0.0.0:8080',
-    'webpack/hot/only-dev-server',
     './src/index.jsx'
   ],
   module: {
@@ -13,6 +12,7 @@ module.exports = {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+        include: path.join(__dirname, 'src')
       },
       {
         test: /\.css$/,
@@ -36,10 +36,20 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devServer: {
-    contentBase: './dist',
-  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+      },
+      output: {
+        comments: false,
+      }
+    }),
+    new webpack.optimize.AggressiveMergingPlugin(),
   ]
 };
