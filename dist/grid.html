@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sample</title>
+    <style type="text/css">
+      #main {
+        padding: 10px 0;
+      }
+      .grid-container {
+        display: grid;
+        grid-template: repeat(6, 1fr) / repeat(6, 1fr);
+        grid-gap: 10px 10px;
+        justify-items: center;
+        align-items: start;
+        width: 980px;
+        height: 720px;
+        margin: 0 auto;
+      }
+      .element {
+        /*justfy-self: center;
+        align-self: start;*/
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div class="grid-container">
+        <div class="element">elm 1</div>
+        <div class="element">elm 2</div>
+        <div class="element">elm 3</div>
+        <div class="element">elm 4</div>
+        <div class="element">elm 5</div>
+        <div class="element">elm 6</div>
+        <div class="element">elm 7</div>
+        <div class="element">elm 8</div>
+        <div class="element">elm 9</div>
+        <div class="element">elm 10</div>
+        <div class="element">elm 11</div>
+        <div class="element">elm 12</div>
+        <div class="element">elm 13</div>
+        <div class="element">elm 14</div>
+      </div>
+
+      <button id="first">first row</button>
+      <button id="second">second row</button>
+      <button id="reset">reset</button>
+    </div>
+
+    <script>
+      document.getElementById("first").addEventListener("click", expand, false);
+      document.getElementById("second").addEventListener("click", expand, false);
+      document.getElementById("reset").addEventListener("click", expand, false);
+
+      function expand(e) {
+        e.preventDefault();
+        console.log(e.target);
+        if(e.target.id === "first") {
+          document.querySelector(".grid-container").style.gridTemplateRows = "2fr 1fr 1fr 1fr 1fr 1fr";
+        } else if (e.target.id === "second") {
+          document.querySelector(".grid-container").style.gridTemplateRows = "1fr 2fr 1fr 1fr 1fr 1fr";
+        } else {
+          document.querySelector(".grid-container").style.gridTemplateRows = "1fr 1fr 1fr 1fr 1fr 1fr";
+        }
+      }
+    </script>
+  </body>
+</html>
